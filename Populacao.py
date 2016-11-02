@@ -24,6 +24,9 @@ class Populacao:
 			for i in range(0,n):
 				self.piscina.append(self.individuos[_])
 
+	def esvaziaPiscina(self):
+		self.piscina = []
+
 	def reproduzir(self):
 		novosIndividuos = []
 		for _ in range(0,len(self.individuos)):
@@ -54,7 +57,7 @@ class Populacao:
 			self.evaluate()
 			indiceMelhor = self.fittest()
 			print("Melhor até o momento: "+self.individuos[self.melhorIndice].frase()+" com fitness de: "+str(int(self.individuos[self.melhorIndice].fitness*100))+"%")
-			piscina = []
+			self.esvaziaPiscina()
 			self.enchePiscina()
 			self.reproduzir()
 
